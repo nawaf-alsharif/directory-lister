@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['directory'])) {
     // الحصول على المدخل من المستخدم
-    $directory = $_POST['directory'];  // تطهير المدخل لتجنب الثغرات الأمنية
+    $directory = escapeshellarg($_POST['directory']);  // تطهير المدخل لتجنب الثغرات الأمنية
 
     // بناء الأمر باستخدام المدخل
     $command = "ls -l " . $directory;
